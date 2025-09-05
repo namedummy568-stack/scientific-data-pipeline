@@ -1,0 +1,14 @@
+name: Data Processing Pipeline
+
+on: [push]
+
+jobs:
+  data_transformation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Simulate data processing failure
+        run: |
+          echo "Error: NumPy array dimension mismatch in step 'feature_engineering' during data transformation"
+          exit 1
